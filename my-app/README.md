@@ -1,16 +1,62 @@
-# React + Vite
+# Pipeline - Projeto CI/CD com GitHub Actions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de exemplo para aplicar os conceitos de **Integração Contínua (CI)** e **Entrega Contínua (CD)** utilizando **GitHub Actions** para automatizar o processo de build, testes, lint e deploy de uma aplicação front-end em **React**.
 
-Currently, two official plugins are available:
+## Objetivo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O objetivo deste projeto é configurar uma pipeline de **CI/CD** para uma aplicação front-end utilizando **GitHub Actions**. A pipeline irá rodar:
 
-## React Compiler
+- **Linting** com ESLint para garantir a qualidade do código.
+- **Testes** automatizados (em breve, testes reais serão adicionados).
+- **Build** da aplicação para garantir que o projeto compile corretamente.
+- **Deploy automatizado** para **GitHub Pages** sempre que alterações forem feitas na branch `main`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Estrutura do Projeto
 
-## Expanding the ESLint configuration
+- **Frontend:** Aplicação feita com React e Vite.
+- **Pipeline de CI/CD:** Configurado no GitHub Actions.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Workflow de GitHub Actions
+
+O arquivo `.github/workflows/main.yml` define o workflow com os seguintes passos:
+
+1. **Instalação de dependências**: `npm ci`
+2. **Rodando ESLint**: `npm run lint`
+3. **Rodando testes**: `npm run test`
+4. **Build da aplicação**: `npm run build`
+5. **Deploy no GitHub Pages**.
+
+## Site publicado
+
+O site está disponível em: [https://LucasPaino.github.io/Pipeline/](https://LucasPaino.github.io/Pipeline/)
+
+## Como rodar o projeto localmente
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/LucasPaino/Pipeline.git
+
+Navegue para a pasta do projeto:
+
+cd Pipeline/my-app
+
+Instale as dependências:
+
+npm install
+
+Inicie o servidor de desenvolvimento:
+
+npm run dev
+
+Abra o navegador e acesse http://localhost:5173 para ver a aplicação.
+
+Contribuindo
+
+Se você deseja contribuir com melhorias ou sugestões, sinta-se à vontade para abrir uma pull request ou issue.
+
+Licença
+
+Este projeto está licenciado sob a MIT License - veja o arquivo LICENSE
+ para mais detalhes.
+
