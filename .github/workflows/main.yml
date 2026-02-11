@@ -11,29 +11,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Pegar o código do repositório
       - name: Checkout do código
         uses: actions/checkout@v4
 
+      # 2️⃣ Configurar Node.js
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
 
+      # 3️⃣ Instalar dependências dentro da pasta my-app
       - name: Instalar dependências
         run: npm ci
+        working-directory: my-app
 
+      # 4️⃣ Rodar ESLint dentro da pasta my-app
       - name: Rodar ESLint
         run: npm run lint
+        working-directory: my-app
 
+      # 5️⃣ Rodar testes (placeholder)
       - name: Rodar testes
         run: npm run test
+        working-directory: my-app
 
+      # 6️⃣ Build da aplicação
       - name: Build da aplicação
         run: npm run build
+        working-directory: my-app
 
+      # 7️⃣ Deploy no GitHub Pages
       - name: Deploy no GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./my-app/dist
